@@ -1,5 +1,6 @@
 // TO DO LIST:
 // 1. I think the data options aren't 100% yet
+// 2. implement headers for all the chart types
 // 4. optimise the jQuery selectors. atm they are like a big pile of shit.
 // 6. start hooking up the 'upload file' option - started, but need to change the plugins to accept the data object
 // 10. lots of work to implement the 'theme' options
@@ -8,7 +9,7 @@
 
 // Priorities:
 // 1. clean up the jPicker plugin. 
-// 2. data parsing from inside each plugin. There neds to be regex that strips out garbage and then parseFloat of those qulitative values on the chart
+// 2. data parsing from inside each plugin. There needs to be regex that strips out garbage and then parseFloat of those qualitative values on the chart
 // 3. implement the spacing attribute on the force chrt. use it to set the force between tree nodes
 // 4. there are a bunch of plugin settings (see 2. - also for the chord chart) that are no fully implemented through the interface. Namely the "theme" tab. This needs to be gone through
 // 5. add a nice animation transition for the scales? that would be nice
@@ -676,7 +677,7 @@ ChartData = {
 	},
 	convertArrayToJSON : function(data) {
 		// converts a set of arrays to a JSON object. When uploading a CSV and converting it to arrays, I want to then save it a JSON on the server
-		// this only converts to a flat structured JSN object
+		// this only converts to a flat structured JSON object
 		var result = [], // the empty data object to be returned
 			attrLength = data[0].length,  // the amount of attributes in the matrix
 			dataHeaders = data[0]; // the categories of the matrix
