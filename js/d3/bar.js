@@ -194,8 +194,51 @@ var Extend = Extend || function(){var h,g,b,e,i,c=arguments[0]||{},f=1,k=argumen
                 .remove();
             
         },
+        isScaleNumeric : function(scale) {
+            // find out whether the scale is numeric or not
+            switch(scale) {
+                case "linear" :
+                    return true;
+                    break;
+                case "pow" :
+                    return true;
+                    break;
+                case "log" :
+                    return true;
+                    break;
+                case "quanitze" :
+                    return true;
+                    break;
+                case "identity" :
+                    return true;
+                    break;
+                default : 
+                    return false;
+            }
+        },
         parseData : function(data) {
             // I may want to flatten out nested data here. not sure yet
+            // if the scale is ordinal, I have to put in an opening value so that I can push the data across the chart
+            // the first thing I have to do here is make sure the "value" field is numeric.
+            var container = this,
+                scaleX = container.opts.scale.x,
+                scaleY = container.opts.scale.y,
+                dataLength = data.length;
+
+            if (container.isScaleNumeric(scaleX)) {
+                for (var i = 0; i < dataLength; i++) {
+                    // parse the x scale
+                    data[i][container.opts.dataStructure.x] = parseFloat(data[i][container.opts.dataStructure.x]);
+                }
+            }
+
+            if (container.isScaleNumeric(scaleY)) {
+                for (var j = 0; j < dataLength; j++) {
+                    // parse the y scale
+                    data[j][container.opts.dataStructure.y] = parseFloat(data[j][container.opts.dataStructure.y]);
+                }
+            }
+
             return data;
         },
         // need to do some thinking around these next 2 functions

@@ -141,7 +141,7 @@ var Extend = Extend || function(){var h,g,b,e,i,c=arguments[0]||{},f=1,k=argumen
             container.pack
                 .size([this.opts.diameter, this.opts.diameter])
                 // custom size function as passed into the options object
-                .value(function(d) { return d[container.opts.dataStructure.value]})
+                .value(function(d) { return parseFloat(d[container.opts.dataStructure.value])})
                 // custom children function as passed into the options object
                 .children(function(d) { return d[container.opts.dataStructure.children]})
                 .padding(container.opts.spacing);
@@ -472,7 +472,7 @@ var Extend = Extend || function(){var h,g,b,e,i,c=arguments[0]||{},f=1,k=argumen
                     node[children].forEach(function(child) { recurse(node[container.opts.dataStructure.name], child); });
                 }
                 else {
-                    dataList.push({packageName: name, className: node[container.opts.dataStructure.name], value: node.size});
+                    dataList.push({packageName: name, className: node[container.opts.dataStructure.name], value: parseFloat(node[container.opts.dataStructure.value])});
                 }
             };
 

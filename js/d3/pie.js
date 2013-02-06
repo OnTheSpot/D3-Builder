@@ -305,7 +305,7 @@ var Extend = Extend || function(){var h,g,b,e,i,c=arguments[0]||{},f=1,k=argumen
                 }
                 else {
                     // do some error handling here?
-                    total += node.size;
+                    total += parseFloat(node[container.opts.dataStructure.value]);
                     if (!node[container.opts.dataStructure.name]) {
                         className = undefined;
                     }
@@ -313,7 +313,7 @@ var Extend = Extend || function(){var h,g,b,e,i,c=arguments[0]||{},f=1,k=argumen
                         className = node[container.opts.dataStructure.name];
                     }
                     //console.log('doing push');
-                    dataList.push({category: className, className: name, value: node.size, hasChildren: false});  
+                    dataList.push({category: className, className: name, value: parseFloat(node[container.opts.dataStructure.value]), hasChildren: false});  
                 }
             };
             
