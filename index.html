@@ -38,11 +38,29 @@
 	    		<nav role="navigation" class="grid-12">
 	    			<ul>
 	    				<li class="label">Build Options:</li>
+	    				<li>
+	    					<a class="icon-question-sign" name="#build-help">help</a>
+							<div class="helpBox">
+							    <div id="build-help">
+							        <div class="helpContent">
+							          	<h2>Build Options</h2>
+							          	<p>In this menu you can:</p>
+							          	<ol>
+							          		<li><strong>Update Chart Preview:</strong> Once you make changes to the chart options, you can update the preview of the chart to see what it looks like.</li>
+							          		<li><strong>Reset Chart:</strong> This button resets the entire interface back to the default settings.</li>
+							          		<li><strong>Save Chnages:</strong> You can save your current chart. This will save to a cookie and can only store one chart at a time.</li>
+							          		<li><strong>Load Saved Chart:</strong> If you have saved a chart you can quickly reload it.</li>
+							          		<li><strong>Generate Chart Code:</strong> This will package up the chart for you as a zip file. This will include HTML, CSS and all the Javascript you need to embed the chart onto a webpage. If data has been uploaded, it will save that in a file in the "data" folder.</li>
+							          	</ol>
+							        </div>
+							    </div>
+							</div>
+	    				</li>
 						<li><input type="button" value="Update Chart Preview" class="btn rounded" id="build-update"></li>
 						<li><input type="button" value="Reset Chart" class="btn rounded" id="build-reset"></li>
 						<li><input type="button" value="Save Changes" class="btn rounded" id="build-save"></li>
 						<li><input type="button" value="Load Saved Chart" class="btn rounded" id="build-load"></li>
-						<li><input type="submit" value="Generate Chart Code" class="btn rounded inactive" id="build-submit"></li>
+						<li><input type="submit" value="Generate Chart Code" class="btn rounded" id="build-submit"></li>
 					</ul>
 	    		</nav>
     		</section>
