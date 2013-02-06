@@ -415,7 +415,7 @@ var Extend = Extend || function(){var h,g,b,e,i,c=arguments[0]||{},f=1,k=argumen
             else {
                 // the data is passed straight into the plugin form either a function or a data object
                 // I expect a JSON object here
-                container.data = container.opts.data;
+                container.data = container.parseData(container.opts.data);
                 container.updateChart(); 
             }    
         },
