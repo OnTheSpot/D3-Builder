@@ -48,7 +48,8 @@ var Extend = Extend || function(){var h,g,b,e,i,c=arguments[0]||{},f=1,k=argumen
             'x' : 'name',  // this value may end up being an array so I can support multiple data sets. These define the axis' for ordinal scale
             'y' : 'value',
             'ticksX' : 2,  // tha amount of ticks on the x-axis
-            'ticksY' : 2  // the amount of ticks on the y-axis
+            'ticksY' : 2,  // the amount of ticks on the y-axis
+            'children' : undefined
         },
         'scale' : {
             'x' : 'linear',  // add ordinal support
@@ -86,6 +87,8 @@ var Extend = Extend || function(){var h,g,b,e,i,c=arguments[0]||{},f=1,k=argumen
 
             // create the svg element that holds the chart
             this.setLayout();
+            // set the chart title
+            this.setTitle();
 
             // add the elements to the chart
             this.addElements();
@@ -113,6 +116,33 @@ var Extend = Extend || function(){var h,g,b,e,i,c=arguments[0]||{},f=1,k=argumen
             container.chart
                 .attr("class", "chart")
                 .attr("transform", "translate(" + container.margin.left + "," + container.margin.top + ")");
+        },
+        setTitle : function() {
+            var container = this;
+
+            // ####### CHART TITLE #######
+            if (container.opts.chartName) {
+                if (!container.chartName) {
+                    container.chartName = container.chart.append("g")
+                        .attr("class", "chartName")
+                        .append("text");
+                        console.log('adding chart name');
+                }
+                container.chartName = container.chart.select(".chartName").select("text")
+                    .text(function() {
+                        var chartTitle;
+                        if (container.opts.dataStructure.children) {
+                            chartTitle = container.dataCategory;
+                            console.log('there is children');
+                        }
+                        else {
+                            chartTitle = container.opts.chartName;
+                            console.log('there is no children');
+                        }
+                        console.log(chartTitle);
+                        return chartTitle;
+                    });
+            }
         },
         addAxis : function() {
             var container = this;

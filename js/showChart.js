@@ -30,7 +30,7 @@ Settings = {
         return settings;
     },
     // set common CSS styles. namely the background and the header
-    getStyle : function(data) {
+    getStyle : function(data, positionType) {
         var chartStyle = "";
 
         // get all the theme settings and add them to the style element
@@ -39,7 +39,7 @@ Settings = {
         }
         // add the header style if there is a value for it
         if (data.theme.headerName) {
-            chartStyle += ".chartName {font-size:" + data.theme.headerSize + "px; fill:#" + data.theme.headerColor + "; font-weight:bold;-webkit-transform: translate(" + ChartTheme.getHeaderPositionCentered(data) + ");transform: translate(" + ChartTheme.getHeaderPositionCentered(data) + ");}\n";
+            chartStyle += ".chartName {font-size:" + data.theme.headerSize + "px; fill:#" + data.theme.headerColor + "; font-weight:bold;-webkit-transform: translate(" + ChartTheme[positionType](data) + ");transform: translate(" + ChartTheme[positionType](data) + ");}\n";
         }
 
         return chartStyle;
@@ -87,7 +87,7 @@ PieChart = {
         // get the specific settings
         this.getSettings();
         // get the common style elements
-        this.chartStyle = Settings.getStyle(FormData);
+        this.chartStyle = Settings.getStyle(FormData, "getHeaderPositionCentered");
         // get the specific style
         this.getStyle();
         // build the chart
@@ -125,7 +125,7 @@ PackChart = {
         // get the specific settings
         this.getSettings();
         // get the common style elements
-        this.chartStyle = Settings.getStyle(FormData);
+        this.chartStyle = Settings.getStyle(FormData, "getHeaderPosition");
         // get the specific style
         this.getStyle();
         // build the chart
@@ -170,7 +170,7 @@ ForceChart = {
         // get the specific settings
         this.getSettings();
         // get the common style elements
-        this.chartStyle = Settings.getStyle(FormData);
+        this.chartStyle = Settings.getStyle(FormData, "getHeaderPosition");
         // get the specific style
         this.getStyle();
         // build the chart
@@ -203,7 +203,7 @@ SunburstChart = {
         // get the specific settings
         this.getSettings();
         // get the common style elements
-        this.chartStyle = Settings.getStyle(FormData);
+        this.chartStyle = Settings.getStyle(FormData, "getHeaderPosition");
         // get the specific style
         this.getStyle();
         // build the chart
@@ -236,7 +236,7 @@ AreaChart = {
         // get the specific settings
         this.getSettings();
         // get the common style elements
-        this.chartStyle = Settings.getStyle(FormData);
+        this.chartStyle = Settings.getStyle(FormData, "getHeaderPosition");
         // get the specific style
         this.getStyle();
         // build the chart
@@ -260,6 +260,8 @@ AreaChart = {
             x : FormData.data.scale.x,
             y : FormData.data.scale.y
         };
+        // set the children to undefined so that the title will show
+        this.settings.dataStructure.children = undefined;
     },
     getStyle : function() {
         this.chartStyle += ".axis path, .axis line, .domain {fill: none;stroke:#" + FormData.theme.borderColor + ";stroke-width:" + FormData.theme.borderSize + "px;shape-rendering: crispEdges;}\n";
@@ -279,7 +281,7 @@ BarChart = {
         // get the specific settings
         this.getSettings();
         // get the common style elements
-        this.chartStyle = Settings.getStyle(FormData);
+        this.chartStyle = Settings.getStyle(FormData, "getHeaderPosition");
         // get the specific style
         this.getStyle();
         // build the chart
@@ -303,6 +305,8 @@ BarChart = {
             x : FormData.data.scale.x,
             y : FormData.data.scale.y
         };
+        // set the children to undefined so that the title will show
+        this.settings.dataStructure.children = undefined;
     },
     getStyle : function() {
         this.chartStyle += ".axis path, .axis line, .domain {fill: none;stroke:#" + FormData.theme.borderColor + ";stroke-width:" + FormData.theme.borderSize + "px;shape-rendering: crispEdges;}\n";
@@ -322,7 +326,7 @@ ChordChart = {
         // get the specific settings
         this.getSettings();
         // get the common style elements
-        this.chartStyle = Settings.getStyle(FormData);
+        this.chartStyle = Settings.getStyle(FormData, "getHeaderPositionCentered");
         // get the specific style
         this.getStyle();
         // build the chart
@@ -343,8 +347,8 @@ ChordChart = {
             y : FormData.data.scale.y
         };
         */
-        // set the children value to undefined for now
-        FormData.data.attributes = undefined;
+        // set the children to undefined so that the title will show
+        this.settings.dataStructure.children = undefined;
     },
     getStyle : function() {
         // add the header style if there is a vlue for it
