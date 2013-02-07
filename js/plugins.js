@@ -35,7 +35,7 @@ Plugins = {
     },
     colorPicker : function() {
         // add the color picker and then bind the input fields to it.
-        $("#theme-background-color, #theme-header-color, #theme-label-color, #theme-data-border-color").jPicker({
+        $("#color-value").jPicker({
             window: {
                 expandable : true,
                 title : 'Theme Colour',
@@ -51,7 +51,43 @@ Plugins = {
             color : {
                 alphaSupport : true
             }
+        },
+        // commit callback
+        function(color, context) {
+            console.log(color.val('v'));
+            // this is coming from the plugin
+            // http://www.digitalmagicpro.com/jPicker/
+            /*
+            settings.window.input.css(
+            {
+                backgroundColor: hex && '#' + hex || 'transparent',
+                color: va == null || va.v > 75 ? '#000000' : '#ffffff'
+            });
+            */
+        },
+        // live callback
+        function(color, context) {
+
+        },
+        // cancel callback
+        function() {
+
         });
+
+        var themeColorInputs = $("#theme-background-color, #theme-header-color, #theme-label-color, #theme-data-border-color"),
+            activeInput;  // this is the input that is being changed
+
+        themeColorInputs.on("keydown", function() {
+            // when these inputs are changed then send it to the colour picker to get the value and then set background and color
+            // set the active field
+            activeInput = $(this);
+            $("#color-value").attr("value", activeInput.attr("value")).trigger("keyup");
+        });
+        themeColorInputs.on("focus", function() {
+            activeInput = $(this);
+        })
+
+        
     },
     validator : function() {
 
