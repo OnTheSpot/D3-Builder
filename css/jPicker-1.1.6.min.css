@@ -35,7 +35,7 @@
 .jPicker td.Text input{background-color:#fff;border:1px inset #aaa;height:19px;margin:0 0 0 5px;text-align:left;width:40px}
 .jPicker td[class="Text"] input{height:20px}
 .jPicker tr.Hex td.Text input.Hex{width:50px}
-.jPicker tr.Hex td.Text input.AHex{width:20px}
+.jPicker tr.Hex td.Text input.AHex{width:29px}
 .jPicker .Grid{text-align:center;width:114px}
 .jPicker .Grid span.QuickColor{border:1px inset #aaa;cursor:pointer;display:block;float:left;height:15px;line-height:15px;margin:0;padding:0;width:19px}
 .jPicker .Grid span[class="QuickColor"]{width:17px}

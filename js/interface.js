@@ -1,6 +1,5 @@
 // TO DO LIST:
 // 1. I think the data options aren't 100% yet
-// 2. implement headers for all the chart types
 // 4. optimise the jQuery selectors. atm they are like a big pile of shit.
 // 6. start hooking up the 'upload file' option - started, but need to change the plugins to accept the data object
 // 10. lots of work to implement the 'theme' options
@@ -772,7 +771,7 @@ ChartData = {
 
 ChartTheme = {
 	init : function() {
-		this.addColorPickers();
+		
 	},
 	reset : function() {
 		// set to default values
@@ -891,21 +890,6 @@ ChartTheme = {
 		
 		// update the data object for the form
 		FormData.theme = theme;
-	},
-	addColorPickers : function() {
-		$("#theme-background-color, #theme-header-color, #theme-label-color, #theme-data-border-color").jPicker({
-			window: {
-				expandable : true,
-				title : 'Theme Colour',
-				position : {
-					x: 'screenCenter',
-					y: 200
-				}
-			},
-			images : {
-				clientPath: 'css/img/'
-			}
-		});
 	},
 	// gets the header position when the .chartName element naturally sits at the top left of the chart
 	getHeaderPosition : function(data) {

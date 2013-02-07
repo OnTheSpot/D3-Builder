@@ -5,6 +5,7 @@ Plugins = {
         // run all the plugins from here
         this.tabs();
         this.popups();
+        this.colorPicker();
         this.validator();
     },
     tabs : function() {
@@ -29,6 +30,26 @@ Plugins = {
             'shadowLength' : 0,
             'onOpen' : function() {
                 $("#popupBox .popupClose").addClass("icon-remove-sign");
+            }
+        });
+    },
+    colorPicker : function() {
+        // add the color picker and then bind the input fields to it.
+        $("#theme-background-color, #theme-header-color, #theme-label-color, #theme-data-border-color").jPicker({
+            window: {
+                expandable : true,
+                title : 'Theme Colour',
+                position : {
+                    x: 'screenCenter',
+                    y: 200
+                },
+                alphaSupport : true
+            },
+            images : {
+                clientPath: 'css/img/'
+            },
+            color : {
+                alphaSupport : true
             }
         });
     },
