@@ -506,6 +506,9 @@ ChartColors = {
 		var colorArray = ChartColors[newScheme],
 			colorArrayLength = colorArray.length,
 			palette = $("fieldset.color .palette");
+
+		// ###### Note: I have to reset the alpha cannel on the color picker when changing colour scheme
+		$.jPicker.List[0].color.active.val('a', 255);
 		
 		for (var i = 0; i < colorArrayLength; i++) {
 			// populate the inputs

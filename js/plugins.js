@@ -70,7 +70,8 @@ Plugins = {
             }
             else {
                 alphaBox.css({
-                    "visibility" : "hidden"
+                    "visibility" : "hidden",
+                    "opacity" : 1
                 });
             }
             bgBox.css("background-color", bgColor); 
@@ -120,14 +121,14 @@ Plugins = {
             // when these inputs are changed then send it to the colour picker to get the value and then set background and color
             // set the active field
             activeInput = $(this);
-            activePicker = activeInput.siblings(".jPicker");
+            activePicker = activeInput.next();
             $("#color-value").attr("value", activeInput.attr("value")).trigger("keyup");
         });
         themeColorInputs.on("change", function() {
             // when these inputs are changed then send it to the colour picker to get the value and then set background and color
             // set the active field
             activeInput = $(this);
-            activePicker = activeInput.siblings(".jPicker");
+            activePicker = activeInput.next();
             $("#color-value").attr("value", activeInput.attr("value")).trigger("keyup");
         });
         themeColorInputs.on("focus", function() {
@@ -137,7 +138,6 @@ Plugins = {
         themeColorInputs.next().on("click", function() {
             activeInput = $(this).prev();
             activePicker = $(this);
-            console.log(activeInput);
             $("#color-value").attr("value", activeInput.attr("value")).trigger("keyup");
             $.jPicker.List[0].show();
         });
