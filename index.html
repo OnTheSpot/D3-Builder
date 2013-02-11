@@ -84,6 +84,11 @@
 								<li class="btn inactive"><a href="#">Events</a></li>
 							</ul>
 						</nav>
+
+						<!-- colour picker box -->
+						<div style="display:none">
+							<input type="hidden" id="color-value" name="color-value" value="" />
+						</div>
 						
 						<form class="form-stacked module" id="chart-settings">
 							
@@ -884,7 +889,6 @@
 							<fieldset class="theme">
 								<legend>Chart Theme</legend>
 								<!-- background style -->
-								<input type="hidden" id="color-value" name="color-value" value="" />
 								<ul>
 									<li>
 										<input type="checkbox" id="theme-background" name="theme-background" class="show-section checkField">
@@ -1172,6 +1176,7 @@
 		</div><!-- end page -->
 	</div><!-- end #content -->
 </div><!--! end of #wrap -->
+
 <!-- JavaScript at the bottom for fast page loading -->
 	<!-- jQuery plugins -->
 	<script src="js/plugins/placeholder.js"></script>
@@ -1195,6 +1200,20 @@
 	<script src="js/interface.js"></script>
 	<script src="js/showChart.js"></script>
 	<script src="js/buildChart.js"></script>
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38320573-1']);
+  _gaq.push(['_setDomainName', 'sohdoc.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 <!-- end scripts-->
 </body>
 </html>

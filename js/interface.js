@@ -352,7 +352,6 @@ ChartSize = {
 ChartColors = {
 	init : function() {
 		// I'll need to add the default color palette values before I start the initialise the color pickers
-		this.addColorPickers();
 		this.managePaletteSize();
 		// changes the color scheme
 		setTimeout(function() {
@@ -416,23 +415,6 @@ ChartColors = {
 		});
 		// update the data object
 		FormData.colors = colorScheme;
-	},
-	addColorPickers : function() {
-		var paletteColors = $("fieldset.color .palette li.color input");
-		
-		paletteColors.jPicker({
-			window: {
-				expandable : true,
-				title : 'Data Colour',
-				position : {
-					x: 'screenCenter',
-					y: 200
-				}
-			},
-			images : {
-				clientPath : 'css/img/'
-			}
-		});	
 	},
 	// palette size counter
 	paletteSize : 0,
@@ -528,10 +510,10 @@ ChartColors = {
 		for (var i = 0; i < colorArrayLength; i++) {
 			// populate the inputs
 			// I have to trigger a keyup event here so that the jpicker plugin can read the value of the input field
-			palette.find("li:eq(" + i + ")").find("input").attr("value", colorArray[i]).trigger("keyup");
+			palette.find("li:eq(" + i + ")").find("input").attr("value", colorArray[i]).trigger("change");
 		}
 		// I'll remove values for those items larger than the array length
-		palette.find("li:gt(" + (colorArrayLength - 1) + ")").find("input").attr("value", "").trigger("keyup");
+		palette.find("li:gt(" + (colorArrayLength - 1) + ")").find("input").attr("value", "").trigger("change");
 	}
 };
 
@@ -780,10 +762,10 @@ ChartTheme = {
 		$("#theme-header-size").attr("value", "20");
 		$("#theme-header-offsetY").attr("value", "0");
 		$("#theme-header-offsetX").attr("value", "0");
-		$("#theme-header-color").attr("value", "000000").trigger("keyup");
+		$("#theme-header-color").attr("value", "000000").css("color", "#fff").trigger("keyup");
 		$("#theme-label-size").attr("value", "10");
 		$("#theme-label-position").attr("value", "");
-		$("#theme-label-color").attr("value", "000000").trigger("keyup");
+		$("#theme-label-color").attr("value", "000000").css("color", "#fff").trigger("keyup");
 		$("#theme-data-border-size").attr("value", "1");
 		$("#theme-data-border-color").attr("value", "eeeeee").trigger("keyup");
 		$("#theme-data-spacing").attr("value", "1");
