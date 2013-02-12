@@ -20,23 +20,23 @@ Config = {
 		"area" : 		["x", "y"],
 		"bar" : 		["x", "y"],
 		"chord" : 		["x", "y"]
-	}
+	},
 	dataScaleX : {
-		"pie" : 		[],
-		"pack" : 		[],
-		"sunburst" : 	[],
-		"force" : 		[],
-		"area" : 		["ordinal"],
-		"bar" : 		["ordinal"],
-		"chord" : 		[]
-	}
+		"pie" : 		["ordinal"],
+		"pack" : 		["ordinal"],
+		"sunburst" : 	["ordinal"],
+		"force" : 		["ordinal"],
+		"area" : 		["ordinal", "qualitative"],
+		"bar" : 		["ordinal", "qualitative"],
+		"chord" : 		["qualitative"]
+	},
 	dataScaleY : {
-		"pie" : 		[],
-		"pack" : 		[],
-		"sunburst" : 	[],
-		"force" : 		[],
+		"pie" : 		["qualitative"],
+		"pack" : 		["qualitative"],
+		"sunburst" : 	["qualitative"],
+		"force" : 		["qualitative"],
 		"area" : 		["qualitative"],
 		"bar" : 		["qualitative"],
-		"chord" : 		[]
+		"chord" : 		["qualitative"]
 	}
 }

@@ -218,16 +218,17 @@ ChartType = {
 	// handles the chart type selection interaction
 	showType : function() {
 		$("#type-chart").on("change", function() {
-			var value = $(this).attr("value"),
+			var chartType = $(this).attr("value"),
 				dataSelect = $("#data-structure"),
 				// this is probably where I'm going to set the data.allowed flag
-				dataAllowed = $(this).find(":selected").attr("data-allowed").split(' '),
-				chartType = $(this).attr("value"),
+				//dataAllowed = $(this).find(":selected").attr("data-allowed").split(' '),
+				dataAllowed = Config.dataAllowed[chartType],
+				dataAttributes = Config.dataAttributes[chartType],
 				options = '';
 
 			// show the secondary chart type select box
 			$("li.type-settings").css("display", "none");
-			$("li." + value).css("display", "block");
+			$("li." + chartType).css("display", "block");
 			
 			// work out what data options to make available. The the array of data allowed for this chart type
 			for (var i = 0; i < dataAllowed.length; i++) {
@@ -249,6 +250,18 @@ ChartType = {
 			};
 			// refresh the data structure field
 			dataSelect.html(options);
+
+			// work out what data attributes are available and then show those inputs
+			$("li.data-attributes").css("display", "none");
+			for (var i = 0; i < dataAttributes.length; i++) {
+				$("li.data-attributes." + dataAttributes[i]).css("display", "block");
+			};
+
+			// #### work out what scales to show ######
+			$("li.data-scale").css("display", "none");
+
+			// #### work out what ranges to display #######
+			$("li.data-range").css("display", "none");
 
 			// set the value as the first option on the data-structure option list
 			$("#data-structure option:eq(0)").attr("selected", "selected");
