@@ -100,7 +100,6 @@ ChartBuilder = {
 				CodeBuilder.packageCode();
 			}
 		});
-
 	},
 	// show/hide sections in the form.
 	showSection : function() {
@@ -168,7 +167,6 @@ ChartBuilder = {
 		ChartData.setValue();
 		ChartTheme.setValue();
 		ChartEvents.setValue();
-		
 	},
 	buildChart : function() {
 		switch (FormData.type.primary) {
@@ -212,7 +210,6 @@ ChartBuilder = {
 	}
 };
 
-
 // each section of the form will have it's own object that will control that part of the interface
 ChartType = {
 	init : function() {
@@ -224,50 +221,40 @@ ChartType = {
 			var value = $(this).attr("value"),
 				dataSelect = $("#data-structure"),
 				// this is probably where I'm going to set the data.allowed flag
-				dataType = $(this).find(":selected").attr("data-allowed"),
-				chartType = $(this).attr("value");
-				options = '<option selected="selected" value="flat">Ordinal Flat</option><option value="nested">Ordinal Nested</option><option value="quantitative">Quantitative</option><option value="matrix">Matrix</option>';
+				dataAllowed = $(this).find(":selected").attr("data-allowed").split(' '),
+				chartType = $(this).attr("value"),
+				options = '';
 
 			// show the secondary chart type select box
 			$("li.type-settings").css("display", "none");
 			$("li." + value).css("display", "block");
 			
+			// work out what data options to make available. The the array of data allowed for this chart type
+			for (var i = 0; i < dataAllowed.length; i++) {
+				switch (dataAllowed[i]) {
+					case "flat" : 
+						options += '<option value="flat">Ordinal Flat</option>';
+						break;
+					case "nested" :
+						options += '<option value="nested">Ordinal Nested</option>';
+						break;
+					case "quantitative" :
+						options += '<option value="quantitative">Quantitative</option>';
+						break
+					case "matrix" :
+						options += '<option value="matrix">Matrix</option>';
+						break;
+					default : break;
+				};
+			};
 			// refresh the data structure field
 			dataSelect.html(options);
-			//console.log(dataType);
 
-			// can only select flat data - remove the nested option
-			if (dataType === "flat") {
-				//$("#data-structure").find("option[value='nested']").remove();
-				$("#data-structure").attr("value", "flat");
-				ChartData.selectDataStructure("flat");
-
-			}
-			// can only select nested data - remove the flat option
-			else if (dataType === "nested") {
-				//$("#data-structure").find("option[value='flat']").remove();
-				$("#data-structure").attr("value", "nested");
-				ChartData.selectDataStructure("nested");
-			}
-			else if (dataType === "quantitative") {
-				//$("#data-structure").find("option[value='flat']").remove();
-				//$("#data-structure").find("option[value='nested']").remove();
-				$("#data-structure").attr("value", "quantitative");
-				ChartData.selectDataStructure("quantitative");
-			}
-			else if (dataType === "matrix") {
-				//$("#data-structure").find("option[value='flat']").remove();
-				//$("#data-structure").find("option[value='nested']").remove();
-				$("#data-structure").attr("value", "matrix");
-				ChartData.selectDataStructure("matrix");
-			}
-			// can select either
-			else if (dataType === "both") {
-				// just change it to flat
-				ChartData.selectDataStructure("flat");
-			}
-
-			//console.log(chartType);
+			// set the value as the first option on the data-structure option list
+			$("#data-structure option:eq(0)").attr("selected", "selected");
+			var dataSelected = $("#data-structure option:eq(0)").attr("value");
+			// select the data structure
+			ChartData.selectDataStructure(dataSelected);
 			// set the class on the body object to control the help options
 			ChartType.setBodyType(chartType);
 
@@ -554,7 +541,6 @@ ChartData = {
 		$("#data-scaleY").attr("value", FormData.data.scale.y);
 	},
 	getValue : function() {
-		
 		console.log('getting data value');
 		
 		FormData.data = {
@@ -589,12 +575,10 @@ ChartData = {
 		}
 		else if (FormData.data.structure === "matrix") {
 			FormData.data.dummy = $("#data-dummy-matrix").attr("value");
-		}
-		
+		}	
 	},
 	fileData : {},  // data object to hold uploaded file
 	handleFileUpload : function() {
-		
 		// need to reference 'this' from the event handler
 		var dataHandler = this;
 
@@ -653,10 +637,8 @@ ChartData = {
 	        }
 	        else {
 	        	alert("only JSON, CSV and TSV files are allowed");
-	        }
-	        
-		});
-			
+	        } 
+		});	
 	},
 	convertArrayToJSON : function(data) {
 		// converts a set of arrays to a JSON object. When uploading a CSV and converting it to arrays, I want to then save it a JSON on the server
@@ -984,7 +966,6 @@ $(document).ready(function()
 
 	// run the plugins
 	Plugins.init();
-	
 });
 
 

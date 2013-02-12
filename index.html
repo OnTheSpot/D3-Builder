@@ -115,14 +115,14 @@
 							          		</div>
 							          	</div>
 							          	<select id="type-chart" name="type-chart" class="required">
-											<option value="0" data-allowed="none" selected="selected">-- select a chart type --</option>
-								            <option value="pie" data-allowed="both">Pie</option>
-											<option value="pack" data-allowed="nested">Pack</option>
-											<option value="sunburst" data-allowed="nested">Sunburst</option>
-											<option value="force" data-allowed="nested">Force</option>
-											<option value="area" data-allowed="quantitative">Area</option>
-											<option value="bar" data-allowed="quantitative">Bar</option>
-											<option value="chord" data-allowed="matrix">Chord</option>
+											<option value="0" data-allowed="none" data-scale-x="none" data-scale-y="none" selected="selected">-- select a chart type --</option>
+								            <option value="pie" data-allowed="flat nested" data-scale-x="none" data-scale-y="none">Pie</option>
+											<option value="pack" data-allowed="nested" data-scale-x="none" data-scale-y="none">Pack</option>
+											<option value="sunburst" data-allowed="nested" data-scale-x="none" data-scale-y="none">Sunburst</option>
+											<option value="force" data-allowed="nested" data-scale-x="none" data-scale-y="none">Force</option>
+											<option value="area" data-allowed="quantitative flat" data-scale-x="ordinal" data-scale-y="linear pow">Area</option>
+											<option value="bar" data-allowed="quantitative flat" data-scale=-x="ordinal" data-scale-y="linear pow">Bar</option>
+											<option value="chord" data-allowed="matrix" data-scale-x="none" data-scale-y="none">Chord</option>
 							            </select>
 							            <span class="error" title="type-chart"></span>
 							        </li>
@@ -833,7 +833,7 @@
 							          	</div>
 							            <select id="data-scaleX" name="data-scaleX">
 								            <option value="linear" selected="selected">linear</option>
-											<option value="exponential">exponential</option>
+											<option value="pow">pow</option>
 											<option value="ordinal">ordinal</option>
 							            </select>
 							        </li>
@@ -850,7 +850,7 @@
 							          	</div>
 							            <select id="data-scaleY" name="data-scaleY">
 								            <option value="linear" selected="selected">linear</option>
-											<option value="exponential">exponential</option>
+											<option value="pow">pow</option>
 											<option value="ordinal">ordinal</option>
 							            </select>
 							        </li>
@@ -1200,20 +1200,20 @@
 	<script src="js/interface.js"></script>
 	<script src="js/showChart.js"></script>
 	<script src="js/buildChart.js"></script>
+	<!--
 	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-38320573-1']);
+	  _gaq.push(['_setDomainName', 'sohdoc.org']);
+	  _gaq.push(['_trackPageview']);
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38320573-1']);
-  _gaq.push(['_setDomainName', 'sohdoc.org']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+	-->
 <!-- end scripts-->
 </body>
 </html>
