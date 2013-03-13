@@ -220,11 +220,33 @@ ChartType = {
 		$("#type-chart").on("change", function() {
 			var chartType = $(this).attr("value"),
 				dataSelect = $("#data-structure"),
-				// this is probably where I'm going to set the data.allowed flag
-				//dataAllowed = $(this).find(":selected").attr("data-allowed").split(' '),
+				scaleX = $("#data-scaleX"),
+				scaleY = $("#data-scaleY"),
 				dataAllowed = Config.dataAllowed[chartType],
 				dataAttributes = Config.dataAttributes[chartType],
-				options = '';
+				dataScaleX = Config.dataScaleX[chartType],
+				dataScaleY = Config.dataScaleY[chartType],
+				options = "";
+
+			// return the options for the scale drop down
+			function setScale(settings) {
+				var options = "";
+				for (var i = 0; i < settings.length; i++) {
+					switch (settings[i]) {
+						case "linear" :
+							options += "<option value='linear'>linear</option>";
+							break;
+						case "ordinal" : 
+							options += "<option value='ordinal'>ordinal</option>";
+							break;
+						case "pow" : 
+							options += "<option value='pow'>power</option>";
+							break;
+						default : break;
+					};
+				};
+				return options;
+			}
 
 			// show the secondary chart type select box
 			$("li.type-settings").css("display", "none");
@@ -234,22 +256,25 @@ ChartType = {
 			for (var i = 0; i < dataAllowed.length; i++) {
 				switch (dataAllowed[i]) {
 					case "flat" : 
-						options += '<option value="flat">Ordinal Flat</option>';
+						options += "<option value='flat'>Ordinal Flat</option>";
 						break;
 					case "nested" :
-						options += '<option value="nested">Ordinal Nested</option>';
+						options += "<option value='nested'>Ordinal Nested</option>";
 						break;
 					case "quantitative" :
-						options += '<option value="quantitative">Quantitative</option>';
+						options += "<option value='quantitative'>Quantitative</option>";
 						break
 					case "matrix" :
-						options += '<option value="matrix">Matrix</option>';
+						options += "<option value='matrix'>Matrix</option>";
 						break;
 					default : break;
 				};
 			};
 			// refresh the data structure field
 			dataSelect.html(options);
+			// set the value as the first option on the data-structure option list
+			dataSelect.find("option:eq(0)").attr("selected", "selected");
+			var dataSelected = $("#data-structure option:eq(0)").attr("value");
 
 			// work out what data attributes are available and then show those inputs
 			$("li.data-attributes").css("display", "none");
@@ -257,15 +282,17 @@ ChartType = {
 				$("li.data-attributes." + dataAttributes[i]).css("display", "block");
 			};
 
-			// #### work out what scales to show ######
-			$("li.data-scale").css("display", "none");
+			// refresh the x-scale dropdown list
+			scaleX.html(setScale(dataScaleX));
+			// refresh the x-scale dropdown list
+			scaleY.html(setScale(dataScaleY));
+
 
 			// #### work out what ranges to display #######
+			// On the to-do list
 			$("li.data-range").css("display", "none");
 
-			// set the value as the first option on the data-structure option list
-			$("#data-structure option:eq(0)").attr("selected", "selected");
-			var dataSelected = $("#data-structure option:eq(0)").attr("value");
+			
 			// select the data structure
 			ChartData.selectDataStructure(dataSelected);
 			// set the class on the body object to control the help options
@@ -283,7 +310,7 @@ ChartType = {
 		//console.log(bodyClass);
 		if (bodyClass)
 		{
-			classArray = bodyClass.split(' ');
+			classArray = bodyClass.split(" ");
 
 			$.each(classArray, function(index, value) {
 				// check to see if the value gives a positive index
@@ -368,9 +395,6 @@ ChartColors = {
 	scheme5 : ["3b2f23","342a1f","81613e","735637","a4b167","929e5c","d6d2b4","bfbba1","4e693b","455d34"],
 	scheme6 : ["645156","4b4143","411a23","b2989e","b29fa3","6d6658","524e46","47371d","b6ad9c","b6afa3","433d4a","333038","201430","988fa5","9b95a5","54604d","41483d","273e19","a0af96","a4af9d"],
 	scheme7 : ["e82351","ae3f59","970b2C","f4587d","f4829c","fdae26","be9145","a46c0c","fec25c","fed287","265aa7","35527d","0c336c","598ad3","799dd3","67dd21","64a63c","3c900b","8fee56","a8ee7f"],
-	scheme8 : ["3aff06","518c41","145e00","40ff0d","44ff13","06ff94","418c6c","005e36","0dff97","13ff9a","9dff06","6f8c41","395e00","a0ff0d","a2ff13","ff0623","8c414a","5e000b","ff0d29","ff132f"],
-	scheme9 : ["ff06ff","8c418c","5e005e","ff0dff","ff13ff","9dff06","6f8c41","395e00","a0ff0d","a2ff13","fff706","8c8a41","5e5b00","fff70d","fff813"],
-	scheme10 : ["","","","","","","","","","","","","","","","","","","",""],
 	reset : function() {
 		// set to default values
 		// set it to a custom scheme

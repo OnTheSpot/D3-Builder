@@ -26,17 +26,17 @@ Config = {
 		"pack" : 		["ordinal"],
 		"sunburst" : 	["ordinal"],
 		"force" : 		["ordinal"],
-		"area" : 		["ordinal", "qualitative"],
-		"bar" : 		["ordinal", "qualitative"],
-		"chord" : 		["qualitative"]
+		"area" : 		["ordinal", "linear"],
+		"bar" : 		["ordinal", "linear"],
+		"chord" : 		["linear"]
 	},
 	dataScaleY : {
-		"pie" : 		["qualitative"],
-		"pack" : 		["qualitative"],
-		"sunburst" : 	["qualitative"],
-		"force" : 		["qualitative"],
-		"area" : 		["qualitative"],
-		"bar" : 		["qualitative"],
-		"chord" : 		["qualitative"]
+		"pie" : 		["linear"],
+		"pack" : 		["linear"],
+		"sunburst" : 	["linear"],
+		"force" : 		["linear"],
+		"area" : 		["linear"],
+		"bar" : 		["linear"],
+		"chord" : 		["linear"]
 	}
 }

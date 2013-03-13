@@ -66,8 +66,8 @@ Settings = {
         this.getBuildSettings(chartType, settings, chartStyle);
     },
     getBuildSettings : function(chartType, settings, chartStyle) {
-        var script  = 'var chart = document.getElementById("chart");\n';
-            script += 'd3.' + chartType + '(chart,' + JSON.stringify(settings) + ');\n';
+        var script  = "var chart = document.getElementById('chart');\n";
+            script += "d3." + chartType + "(chart," + JSON.stringify(settings) + ");\n";
 
         // assign the settings to the CodeBuilder object
         CodeBuilder.settings = {
