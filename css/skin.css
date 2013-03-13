@@ -13,7 +13,7 @@
 
 /* DEFAULT  
  * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-html {background:#eee;color:#222}
+html {background:#eee;color:#222;height:100%;}
 body {background:none;font-family:"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:300}
 blockquote p {font:normal 2em/1.2 'Homemade Apple',Georgia}
 h1,h2,h3,h4,h5,h6 {font-weight:bold;letter-spacing:-0.03em}
@@ -31,7 +31,9 @@ a:link {-webkit-tap-highlight-color:#1b75bb}
 
 /* LAYOUT  
  * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-#content{background:#fff;margin:20px auto;border-radius:10px;border:1px solid rgba(0,0,0,0.2);box-shadow:2px 2px 5px rgba(0,0,0,0.3)}
+#wrap {height:100%;}
+#content{background:#fff;min-height:100%;}
+.page > section {width:100%;position:relative;clear:both;}
 
 /* MODULES 
  * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -100,7 +102,7 @@ a:link {-webkit-tap-highlight-color:#1b75bb}
  * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 section[role="region"] .grid {overflow:visible;}
 #actionNav {margin-bottom:0;overflow:visible;}
-#actionNav ul {float:right;padding-bottom:20px;}
+#actionNav ul {float:right;padding:10px;}
 #actionNav li.label {margin-right:10px;font-weight:bold;}
 #actionNav #build-update {background:#b72121;border:1px solid #663535}
 #actionNav .icon-question-sign {margin-top:2px;margin-right:5px;text-indent:-9000px;cursor:pointer;}
@@ -143,8 +145,10 @@ li.theme-data {display:none}
 .palette li.selected {display:block}
 .palette li input {display:none}
 
-.chart-grid {position:relative;z-index:1;}
-#chart-preview {min-height:500px}
+#chart-grid {position:relative;width:auto;padding-right:230px;float:none;margin:0;}
+#chart-grid .module {}
+#control-panel {position:absolute;top:0px;right:10px;}
+#chart-preview {text-align:center;padding:20px;}
 
 
 /* PLUGINS (jQuery)  
