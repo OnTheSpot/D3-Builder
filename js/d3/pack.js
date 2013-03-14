@@ -131,7 +131,7 @@ var Extend = Extend || function(){var h,g,b,e,i,c=arguments[0]||{},f=1,k=argumen
         setLayout : function() {
             var container = this;
 
-            console.log(this.opts);
+            //console.log(this.opts);
 
             // DEFINE EACH OF THE TWO TYPES OF LAYOUTS
             // this is the layout for the regular pack i.e. layered chart
@@ -396,7 +396,7 @@ var Extend = Extend || function(){var h,g,b,e,i,c=arguments[0]||{},f=1,k=argumen
                     .style("font-size", container.opts.fontSize/scaleFactor + "px");
             }
 
-            console.log(centerAdjustment);
+            //console.log(centerAdjustment);
 
             // transform each of the nodes
             chart

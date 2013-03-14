@@ -23,7 +23,7 @@ Plugins = {
         // help icon popups
         $(".icon-question-sign").popup({
             'transparentOpacity' : 30,
-            'boxHeight' : 500,
+            'boxHeight' : 400,
             'boxWidth' : 500,
             'titleHeight' : 0,
             'controlHeight' : 0,
@@ -49,32 +49,38 @@ Plugins = {
             var bgColor = "#" + color.val("hex"),
                 textColor = "#ffffff",
                 colorAlpha = Math.precision((color.val("a") / 255) * 100),
-                alphaBox = activePicker.find(".Alpha"),
+                alphaBox,
                 bgBox = activePicker.find(".Color");
+
+            // make sure there is an active picker before finding the alpha color
+            if (activePicker) {
+                alphaBox = activePicker.find(".Alpha");
+            }
 
             if (color.val("v") > 75) {
                 textColor = "#000000";
             }
             // set the color of the active input
-            activeInput
-                .css({
-                    "background-color" : bgColor,
-                    "color" : textColor
-                });
+            activeInput.css({
+                "background-color" : bgColor,
+                "color" : textColor
+            });
             // set the css for the picker window
-            if (colorAlpha < 100) {
+            if (colorAlpha < 100 && alphaBox) {
                 alphaBox.css({
                     "visibility" : "visible",
                     "opacity" : colorAlpha / 100
                 });
             }
-            else {
+            else if (alphaBox) {
                 alphaBox.css({
                     "visibility" : "hidden",
                     "opacity" : 1
                 });
             }
-            bgBox.css("background-color", bgColor); 
+            if (bgBox) {
+                bgBox.css("background-color", bgColor); 
+            }
         };
 
         // adds the picker boxes to each of the inputs
@@ -259,6 +265,7 @@ Plugins = {
         $(".show-section").on('change', function() {
             var section = $(this).attr("id"),
                 sectionInputs = $(this).closest("fieldset").find("li." + section + " input");
+                
             if ($(this).attr("checked")) {
                 // add validation to those fields
                 sectionInputs.addClass("required");

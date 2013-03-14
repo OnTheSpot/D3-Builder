@@ -287,11 +287,9 @@ ChartType = {
 			// refresh the x-scale dropdown list
 			scaleY.html(setScale(dataScaleY));
 
-
 			// #### work out what ranges to display #######
 			// On the to-do list
 			$("li.data-range").css("display", "none");
-
 			
 			// select the data structure
 			ChartData.selectDataStructure(dataSelected);
@@ -385,7 +383,6 @@ ChartColors = {
 			// set a timeout of 0 to do this. note: I should browser test that this works ok elsewhere
 			ChartColors.manageColorScheme();	
 		}, 0);
-		
 	},
 	// color scheme constants
 	scheme1 : ["1f77b4","ff7f0e","2ca02c","d62728","9467bd","8c564b","e377c2","7f7f7f","bcbd22","17becf"], // define the standard D3 color schemes, and also add some of my own?
