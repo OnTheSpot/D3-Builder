@@ -268,8 +268,13 @@ AreaChart = {
         };
         // set the children to undefined so that the title will show
         this.settings.dataStructure.children = undefined;
+
     },
     getStyle : function() {
+        // if the labels are turned off then set the label size to 0
+        if (!FormData.theme.labelSize) {
+            FormData.theme.labelSize = 0;
+        }
         this.chartStyle += ".axis path, .axis line, .domain {fill: none;stroke:#" + FormData.theme.borderColor + ";stroke-width:" + FormData.theme.borderSize + "px;shape-rendering: crispEdges;}\n";
         this.chartStyle += ".line {fill: none;stroke: " + FormData.colors[1] + ";stroke-width: " + FormData.theme.borderSize + "px;}\n";
         this.chartStyle += ".dot {fill: " + FormData.colors[2] + ";stroke: " + FormData.colors[1] + ";stroke-width: 1px;}\n";
@@ -315,6 +320,10 @@ BarChart = {
         this.settings.dataStructure.children = undefined;
     },
     getStyle : function() {
+        // if the labels are turned off then set the label size to 0
+        if (!FormData.theme.labelSize) {
+            FormData.theme.labelSize = 0;
+        }
         this.chartStyle += ".axis path, .axis line, .domain {fill: none;stroke:#" + FormData.theme.borderColor + ";stroke-width:" + FormData.theme.borderSize + "px;shape-rendering: crispEdges;}\n";
         this.chartStyle += ".line {fill: none;stroke: " + FormData.colors[1] + ";stroke-width: " + FormData.theme.borderSize + "px;}\n";
         this.chartStyle += ".dot {fill: " + FormData.colors[2] + ";stroke: " + FormData.colors[1] + ";stroke-width: 1px;}\n";
@@ -347,7 +356,7 @@ ChordChart = {
             'x' : FormData.colors[3],
             'y' : FormData.colors[4]
         };
-        /*
+        /* 
         this.settings.scale = {
             x : FormData.data.scale.x,
             y : FormData.data.scale.y
