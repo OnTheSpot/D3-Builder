@@ -139,6 +139,12 @@ PackChart = {
             'leaf' : FormData.colors[1],
             'label' : FormData.colors[2]
         };
+        if (FormData.theme.labelPosition > 0) {
+            this.settings.labelPosition = FormData.theme.labelPosition;
+        }
+        else {
+            this.settings.labelPosition = false;
+        }
         // I'll need to add this to the form
         //this.settings.speed = FormData.events.speed;
 
