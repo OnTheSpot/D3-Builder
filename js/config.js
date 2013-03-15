@@ -26,8 +26,8 @@ Config = {
 		"pack" : 		["ordinal"],
 		"sunburst" : 	["ordinal"],
 		"force" : 		["ordinal"],
-		"area" : 		["ordinal", "linear"],
-		"bar" : 		["ordinal", "linear"],
+		"area" : 		["linear", "ordinal"],
+		"bar" : 		["linear", "ordinal"],
 		"chord" : 		["linear"]
 	},
 	dataScaleY : {

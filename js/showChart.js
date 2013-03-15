@@ -96,9 +96,9 @@ PieChart = {
     getSettings : function() {
         this.settings.innerRadius = FormData.size.innerRadius;
         this.settings.outerRadius = FormData.size.outerRadius;
-        if (FormData.theme.labelPosition > 0) {
+        //if (FormData.theme.labelPosition > 0) {
             this.settings.labelPosition = FormData.theme.labelPosition;
-        }
+        //}
         // if it's flat then set the parent to 'undefined'
         if (FormData.data.structure === "flat") {
             this.settings.dataStructure.children = undefined;
