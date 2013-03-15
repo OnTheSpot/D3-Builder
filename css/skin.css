@@ -128,12 +128,12 @@ a:link {-webkit-tap-highlight-color:#1b75bb}
 /* LAYOUT  
  * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 #wrap {height:100%;}
-#content{background:#ddd;min-height:100%;box-shadow:inset 0px 0px 40px -5px rgba(0,0,0,0.2);overflow:auto;}
+#content{background:#e5ede1;min-height:100%;box-shadow:inset 0px 0px 40px -5px rgba(0,0,0,0.2);overflow:auto;}
 .page > section {width:100%;position:relative;clear:both;}
 
 /* MODULES 
  * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-.module {padding:10px;margin:0 0 20px 0;background:#f1f1f1;border:1px solid #aaa;-webkit-border-radius:7px;-moz-border-radius:7px;border-radius:7px;box-shadow:2px 2px 5px rgba(0,0,0,0.4)}
+.module {padding:10px;margin:0 0 5px 0;background:#f1f1f1;border:1px solid #aaa;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;box-shadow:2px 2px 5px rgba(0,0,0,0.4)}
 .module p:last-child {margin:0}
 .abstract {position:relative;clear:both;overflow:hidden}
 .abstract img {float:left;margin:5px 10px 0 0}
@@ -174,7 +174,7 @@ a:link {-webkit-tap-highlight-color:#1b75bb}
 .grid.dark-icons .grid-3 {background:#333;padding-top:20px}
 .grid.dark-icons li {color:#fff}
 /* Buttons */
-.btn,form .submit input {display:inline-block;font-size:12px;font-weight:normal;font-family:'quandoregular';line-height:12px;color:#fff;letter-spacing:normal;white-space:nowrap;background:#3c64c1;transition:background linear 0.2s;border:1px solid #1250a5;height:auto;width:auto;cursor:pointer;padding:2px 8px 0px;text-shadow:0 -1px 0 rgba(0,0,0,0.8);box-shadow:inset 2px 2px 3px rgba(255,255,255,0.4), 2px 2px 3px rgba(0, 0, 0, 0.3);-webkit-appearance: none;}
+.btn,form .submit input {display:inline-block;font-size:12px;font-weight:normal;font-family:'quandoregular';line-height:12px;color:#fff;letter-spacing:normal;white-space:nowrap;background:#3c64c1;transition:background linear 0.2s;border:1px solid #1250a5;height:auto;width:auto;cursor:pointer;padding:2px 7px 0px;text-shadow:0 -1px 0 rgba(0,0,0,0.8);box-shadow:inset 2px 2px 3px rgba(255,255,255,0.4), 2px 2px 3px rgba(0, 0, 0, 0.3);-webkit-appearance: none;}
 .btn:hover,.taglist a:hover, .btn.active {background:#142347;border-color:#142347;color:#fff}
 .btn.small {font-size:11px;font-weight:normal;padding:3px 7px 4px;line-height:16px;width:auto}
 .btn.inactive {background:#ddd;border-color:#ccc;color:#999;text-shadow:0 1px 0 rgba(255,255,255,0.75)}
@@ -199,10 +199,12 @@ a:link {-webkit-tap-highlight-color:#1b75bb}
 section[role="region"] .grid {overflow:visible;}
 #actionNav {margin-bottom:0;overflow:visible;font-family:"quandoregular";}
 #actionNav ul {float:left;padding:10px;}
-#actionNav li.label {margin-right:10px;font-weight:bold;font-size:18px;text-shadow:0 1px 0px rgba(255,255,255,0.5);}
-#actionNav #build-update {background:#c63131;border:1px solid #c63131;}
-#actionNav #build-update:hover {background:#841e1e;border:1px solid #841e1e;}
-#actionNav .icon-question-sign {margin-top:2px;margin-right:5px;text-indent:-9000px;cursor:pointer;}
+#actionNav li {margin-right:-1px;}
+#actionNav li.label {font-weight:bold;font-size:18px;text-shadow:0 1px 0px rgba(255,255,255,0.5);}
+#actionNav #build-update {background:#207720;border:1px solid #1c681c;}
+#actionNav #build-update:hover {background:#154915;border:1px solid #154915;}
+#actionNav #build-update:focus {outline:0;border-color:rgba(21,73,21,0.8);-webkit-box-shadow:inset 0 1px 3px rgba(0,0,0,0.1), 0 0 8px rgba(32,119,32,0.6);-moz-box-shadow:inset 0 1px 3px rgba(0,0,0,0.1), 0 0 8px rgba(32,119,32,0.6);box-shadow:inset 0 1px 3px rgba(0,0,0,0.1), 0 0 8px rgba(32,119,32,0.6);}
+#actionNav .icon-question-sign {margin:5px 5px 0;text-indent:-9000px;cursor:pointer;}
 #actionNav .helpContent {background:#fff;box-shadow:3px 3px 6px 2px rgba(0,0,0,0.3);border-radius:10px;padding:10px;min-height:200px;}
 #actionNav .helpContent code strong {color:red;}
 /* Chart Form */
@@ -249,7 +251,7 @@ li.theme-data {display:none}
 #chart-grid {position:relative;width:auto;padding-right:230px;float:none;margin:0;}
 #chart-grid .module {}
 #control-panel {position:absolute;top:0px;right:10px;z-index:1;}
-#control-panel legend {display:block;text-align:center;padding:0 0 10px;width:100%;font-family: 'quandoregular';text-shadow:0 1px 0px rgba(255, 255, 255, 0.75);}
+#control-panel legend {display:block;text-align:center;padding:5px 0 20px;width:100%;font-family: 'quandoregular';text-shadow:0 1px 0px rgba(255, 255, 255, 0.75);text-decoration:underline;}
 #chart-preview {text-align:center;padding:20px;}
 
 
@@ -258,13 +260,13 @@ li.theme-data {display:none}
 #popupBox {}
 #popupBox table {margin:0;}
 #popupBox td {margin:0;padding:0;border:0;}
-#popupBox .helpContent {background:#fff;box-shadow:3px 3px 6px 2px rgba(0,0,0,0.3);border-radius:10px;padding:10px;min-height:200px;}
+#popupBox .helpContent {background:#fff;box-shadow:3px 3px 6px 2px rgba(0,0,0,0.3);border-radius:4px;padding:10px;min-height:200px;}
 #popupBox .helpContent code strong {color:red;}
-#popupBox h2 {margin:10px 0;text-align:center;font-size:20px;font-family:"quandoregular";}
+#popupBox h2 {margin:10px 0 20px;text-align:center;font-size:20px;font-family:"quandoregular";text-decoration:underline;}
 #popupBox p {margin:0 20px 15px;}
 #popupBox ul, #popupBox ol {margin:0 20px 15px;}
 #popupBox li {margin-bottom:10px;}
-#popupBox code {margin:0 10px 10px;display:block;padding:5px 15px;background:#efefef;border-radius:5px;border:1px solid #ddd;}
+#popupBox code {margin:0 20px 10px;display:block;padding:10px 15px;background:#efefef;border-radius:4px;border:1px solid #ddd;}
 .popupClose {display:block;position:absolute;top:10px;right:10px;text-indent:-9000px;}
 #popupBox .helpContent .chart-pie,
 #popupBox .helpContent .chart-pack,
@@ -286,12 +288,13 @@ li.theme-data {display:none}
    MEDIA QUERIES  
 *  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /*  Landscape phones and down  */
-@media (min-width:320px) and (max-width:640px) {
+@media (min-width:320px) and (max-width:767px) {
 #header {width:auto}
 #header nav {height:auto;margin:0 0 10px 0;text-align:center}
 #header nav #logo {position:relative;margin:0 auto}
 #header nav ul {clear:both;float:none;margin:0}
 #control-panel {position:static;right:0;}
+#actionNav li.label {display:block;}
 }
 
 /*  Portrait tablet to landscape and desktop  */
