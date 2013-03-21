@@ -62,3 +62,5 @@ Chart Plugins priority:
 6. node link tree
 
 7. Streamgraph
+
+8. something else
