@@ -128,7 +128,7 @@ a:link {-webkit-tap-highlight-color:#1b75bb}
 /* LAYOUT  
  * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 #wrap {height:100%;}
-#content{background:#e5ede1;min-height:100%;box-shadow:inset 0px 0px 40px -5px rgba(0,0,0,0.2);overflow:auto;}
+#content{background:#eaedea;min-height:100%;box-shadow:inset 0px 0px 40px -5px rgba(0,0,0,0.2);overflow:auto;}
 .page > section {width:100%;position:relative;clear:both;}
 
 /* MODULES 
